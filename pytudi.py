@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for
 import requests
 import json
 import re
+import os
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
@@ -149,4 +150,4 @@ def search():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(port=int(os.environ.get('PORT',5000)), debug=True)
